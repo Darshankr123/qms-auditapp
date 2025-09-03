@@ -1,3 +1,5 @@
+"use client";
+
 import Iconify from "@/components/iconify/iconify";
 import { useSettingsContext } from "@/components/settings/context/settings-context";
 import { useResponsive } from "@/hooks/useResponsive";

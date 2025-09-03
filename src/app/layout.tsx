@@ -1,4 +1,5 @@
 import { AuthProvider } from "@/auth/context/auth-provider";
+import { SettingsProvider } from "@/components/settings/context/settings-provider";
 
 export const metadata = {
   title: "Qms Audits",
@@ -47,31 +48,32 @@ export default function RootLayout({ children }: Props) {
 
       <body>
         <AuthProvider>
-          {/* <GlobalDataProvider>
-            <LocalizationProvider>
-              <SettingsProvider
-                defaultSettings={{
-                  themeMode: "light",
-                  themeDirection: "ltr",
-                  themeContrast: "default",
-                  themeLayout: "vertical",
-                  themeColorPresets: "default",
-                  themeStretch: false,
-                }}
-              >
-                <ThemeProvider>
-                  <MotionLazy>
-                    <SnackbarProvider>
-                      <SettingsDrawer />
-                      <ProgressBar />
-                      <AuthConsumer>{children}</AuthConsumer>
-                    </SnackbarProvider>
-                  </MotionLazy>
-                </ThemeProvider>
-              </SettingsProvider>
-            </LocalizationProvider>
-          </GlobalDataProvider> */}
-          {children}
+          {/* <GlobalDataProvider> */}
+          {/* <LocalizationProvider> */}
+          <SettingsProvider
+            defaultSettings={{
+              themeMode: "light",
+              themeDirection: "ltr",
+              themeContrast: "default",
+              themeLayout: "vertical",
+              themeColorPresets: "default",
+              themeStretch: false,
+            }}
+          >
+            {/* <ThemeProvider> */}
+            {/* <MotionLazy> */}
+            {/* <SnackbarProvider> */}
+            {/* <SettingsDrawer /> */}
+            {/* <ProgressBar /> */}
+            {children}
+
+            {/* <AuthConsumer>{children}</AuthConsumer> */}
+            {/* </SnackbarProvider> */}
+            {/* </MotionLazy> */}
+            {/* </ThemeProvider> */}
+          </SettingsProvider>
+          {/* </LocalizationProvider> */}
+          {/* </GlobalDataProvider> */}
         </AuthProvider>
       </body>
     </html>

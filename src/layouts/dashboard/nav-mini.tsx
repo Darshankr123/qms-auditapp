@@ -1,3 +1,5 @@
+"use client";
+
 import { AuthContext } from "@/auth/context/auth-context";
 import { useContext } from "react";
 import { useNavData } from "./config-navigation";
@@ -5,6 +7,8 @@ import { Box, Stack } from "@mui/material";
 import { NAV } from "../config-layout";
 import { NavToggleButton } from "../_common/nav-toggle-button";
 import { hideScroll } from "@/theme/css";
+import Logo from "@/components/logo";
+import NavSectionMini from "@/components/nav-section/mini/nav-section-mini";
 
 const NavMin = () => {
   const { user } = useContext(AuthContext);

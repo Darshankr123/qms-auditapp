@@ -11,7 +11,9 @@ import {
 } from "@mui/material";
 import { paths } from "@/routes/paths";
 import { useAuthContext } from "./hooks/use-auth-context";
-import { useRouter, useSearchParams } from "@/routes/hooks";
+// import { useRouter, useSearchParams } from "@/routes/hooks";
+import { useRouter, useSearchParams } from "next/navigation";
+
 import { useBoolean } from "@/hooks/use-boolean";
 import { useForm } from "react-hook-form";
 
@@ -59,7 +61,7 @@ export default function LoginView() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       // await login?.(data.loginId, data.pinCode);
-      router.push(returnTo || PATH_AFTER_LOGIN);
+      router.push("/dashboard");
       console.log(data);
     } catch (error) {
       console.error(error);

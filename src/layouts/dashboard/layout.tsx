@@ -1,13 +1,30 @@
-// type Props = {
-//   children: React.ReactNode;
-// };
+"use client";
 
+// @mui
+import Box from "@mui/material/Box";
+// hooks
+
+// components
+//
+import Main from "./main";
+import Header from "./header";
+import NavMini from "./nav-mini";
+import NavVertical from "./nav-vertical";
+import NavHorizontal from "./nav-horizontal";
+import { useSettingsContext } from "@/components/settings/context/settings-context";
+import { useResponsive } from "@/hooks/useResponsive";
 import { useBoolean } from "@/hooks/use-boolean";
-import { Box } from "@mui/material";
-import { Main } from "next/document";
 
-const DashboardLayout = ({ children }: Props) => {
+// ----------------------------------------------------------------------
+
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function DashboardLayout({ children }: Props) {
   const settings = useSettingsContext();
+
+  const lgUp = useResponsive("up", "lg");
 
   const nav = useBoolean();
 
@@ -58,6 +75,7 @@ const DashboardLayout = ({ children }: Props) => {
   return (
     <>
       <Header onOpenNav={nav.onTrue} />
+
       <Box
         sx={{
           minHeight: 1,
@@ -71,4 +89,4 @@ const DashboardLayout = ({ children }: Props) => {
       </Box>
     </>
   );
-};
+}
