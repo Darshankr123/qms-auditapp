@@ -74,11 +74,11 @@ export default function DashboardLayout({ children }: Props) {
 
   return (
     <>
-      <Header onOpenNav={nav.onTrue} />
+      {/* <Header onOpenNav={nav.onTrue} /> */}
 
       <Box
         sx={{
-          minHeight: 1,
+          // minHeight: 1,
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
         }}

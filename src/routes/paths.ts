@@ -1,5 +1,6 @@
 const ROOTS = {
   AUTH: "/auth",
+  DASHBOARD: "/dashboard",
 };
 
 export const paths = {
@@ -9,6 +10,24 @@ export const paths = {
     forgotPassword: "",
   },
   dashboard: {
-    root: "/dashboard",
+    root: ROOTS.DASHBOARD,
+
+    previllages: {
+      previllages: `${ROOTS.DASHBOARD}/previllages`,
+    },
+
+    orgs: {
+      organisation: `${ROOTS.DASHBOARD}/organisation`,
+    },
+    roles: {
+      roles: `${ROOTS.DASHBOARD}/roles`,
+      user: `${ROOTS.DASHBOARD}/user`,
+    },
+    audits: {
+      audit: `${ROOTS.DASHBOARD}/audits`,
+    },
+    CentralRepository: {
+      centralRepository: `${ROOTS.DASHBOARD}/centralRepository`,
+    },
   },
 };

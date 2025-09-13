@@ -13,6 +13,8 @@ import NavList from "./nav-list";
 // ----------------------------------------------------------------------
 
 function NavSectionVertical({ data, config, sx, ...other }: NavSectionProps) {
+  // console.log("nav data : ", data);
+
   return (
     <Stack sx={sx} {...other}>
       {data.map((group, index) => (
@@ -38,6 +40,9 @@ type GroupProps = {
 };
 
 function Group({ subheader, items, config }: GroupProps) {
+  // console.log(`sub header : ${subheader}`);
+  // console.log(`items : ${items}`);
+
   const permissions = config.permissions;
 
   const [open, setOpen] = useState(true);
@@ -47,11 +52,11 @@ function Group({ subheader, items, config }: GroupProps) {
   }, []);
 
   const renderContent = items
-    .filter(
-      (list) =>
-        permissions?.role_id === 1 ||
-        (permissions && permissions?.root?.indexOf(list.id) !== -1)
-    )
+    // .filter(
+    //   (list) =>
+    //     permissions?.role_id === 1 ||
+    //     (permissions && permissions?.root?.indexOf(list.id) !== -1)
+    // )
     .map((list) => (
       <NavList
         key={list.title + list.path}

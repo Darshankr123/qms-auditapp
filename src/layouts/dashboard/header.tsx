@@ -50,7 +50,7 @@ export default function Header({ onOpenNav }: Props) {
         </IconButton>
       )}
 
-      <Searchbar />
+      {/* <Searchbar /> */}
 
       <Stack
         flexGrow={1}
@@ -61,7 +61,7 @@ export default function Header({ onOpenNav }: Props) {
       >
         {/* <NotificationsPopover />
 
-        <ContactsPopover /> */}
+        <ContactsPopover />  */}
 
         <SettingsButton />
 
@@ -99,14 +99,14 @@ export default function Header({ onOpenNav }: Props) {
         }),
       }}
     >
-      <Toolbar
+      {/* <Toolbar
         sx={{
           height: 1,
           px: { lg: 5 },
         }}
       >
         {renderContent}
-      </Toolbar>
+      </Toolbar> */}
     </AppBar>
   );
 }

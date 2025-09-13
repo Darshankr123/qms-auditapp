@@ -1,3 +1,5 @@
+"use client";
+
 import * as Yup from "yup";
 import { useState } from "react";
 import { PATH_AFTER_LOGIN } from "@/config-global";
@@ -19,7 +21,7 @@ import { useForm } from "react-hook-form";
 
 import RHFTextField from "@/components/hook-from/rhf-text-field";
 import { RouterLink } from "@/routes/components";
-import LodingButton from "@mui/lab/LoadingButton";
+import LoadingButton from "@mui/lab/LoadingButton";
 import Iconify from "@/components/iconify/iconify";
 import FormProvider from "@/components/hook-from/form-provider";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -38,13 +40,13 @@ export default function LoginView() {
   const password = useBoolean();
 
   const LoginSchema = Yup.object().shape({
-    loginId: Yup.string().required("user name required"),
-    pinCode: Yup.string().required("password is required"),
+    email: Yup.string().required("user name required"),
+    password: Yup.string().required("password is required"),
   });
 
   const defaultValues = {
-    loginId: "",
-    pinCode: "",
+    email: "",
+    password: "",
   };
 
   const methods = useForm({
@@ -60,7 +62,7 @@ export default function LoginView() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      // await login?.(data.loginId, data.pinCode);
+      await login?.(data.email, data.password);
       router.push("/dashboard");
       console.log(data);
     } catch (error) {
@@ -83,7 +85,7 @@ export default function LoginView() {
       {!!errorMsg && <Alert severity="error">{errorMsg}</Alert>}
 
       <RHFTextField
-        name="loginId"
+        name="email"
         size="small"
         label="User Name"
         InputLabelProps={{ shrink: true }}
@@ -93,7 +95,7 @@ export default function LoginView() {
       />
 
       <RHFTextField
-        name="pinCode"
+        name="password"
         label="Password"
         size="small"
         type={password.value ? "text" : "password"}
@@ -123,7 +125,7 @@ export default function LoginView() {
         sx={{ alignSelf: "flex-end" }}
       ></Link>
 
-      <LodingButton
+      <LoadingButton
         fullWidth
         color="inherit"
         size="small"
@@ -133,7 +135,7 @@ export default function LoginView() {
         sx={{ mt: 3, background: "#04522C", color: "#fff" }}
       >
         Login
-      </LodingButton>
+      </LoadingButton>
     </Stack>
   );
 

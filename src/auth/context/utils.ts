@@ -3,6 +3,8 @@ import axios from "@/utils/axios";
 
 function jwtDecode(token: string) {
   const base64Url = token.split(".")[1];
+  console.log("base64URL : ", base64Url);
+
   const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   const jsonPayload = decodeURIComponent(
     window

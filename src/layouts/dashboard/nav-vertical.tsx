@@ -42,6 +42,8 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
 
   const navData = useNavData();
 
+  // console.log(`nav data : ${navData}`);
+
   useEffect(() => {
     if (openNav) {
       onCloseNav();
@@ -70,7 +72,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
 
       <Box sx={{ flexGrow: 1 }} />
 
-      <NavUpgrade />
+      {/* <NavUpgrade /> */}
     </Scrollbar>
   );
 
